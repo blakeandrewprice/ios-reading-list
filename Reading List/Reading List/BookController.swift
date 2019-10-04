@@ -18,4 +18,15 @@ class BookController: Codable {
         
         return documents.appendingPathComponent("books.plist")
     }
+    
+    func saveToPersistentStore() {
+        guard let url = readingListURL else { return }
+        do {
+            let encoder = PropertyListEncoder()
+            let data = try encoder.encode(books)
+            try data.write(to: url)
+        } catch {
+            print("Error saving books data: \(error)")
+        }
+    }
 }
