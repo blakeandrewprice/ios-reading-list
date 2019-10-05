@@ -24,19 +24,28 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="BookTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi9-vg-x4c">
-                                            <rect key="frame" x="20" y="11" width="72" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BookTitle" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gi9-vg-x4c">
+                                            <rect key="frame" x="20" y="11.5" width="323" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-X9-PrF">
-                                            <rect key="frame" x="346" y="-4" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sX3-X9-PrF">
+                                            <rect key="frame" x="351" y="-3.5" width="50" height="50.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50.5" id="6zO-h5-9Kn"/>
+                                                <constraint firstAttribute="width" constant="50" id="7vi-pp-nJQ"/>
+                                            </constraints>
                                             <state key="normal" image="unchecked"/>
                                         </button>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="sX3-X9-PrF" firstAttribute="leading" secondItem="gi9-vg-x4c" secondAttribute="trailing" constant="8" id="3mI-fS-IQD"/>
+                                        <constraint firstAttribute="trailing" secondItem="sX3-X9-PrF" secondAttribute="trailing" constant="13" id="CDp-Sh-DOd"/>
+                                        <constraint firstItem="gi9-vg-x4c" firstAttribute="leading" secondItem="Ocr-4u-Evg" secondAttribute="leadingMargin" id="H8F-vy-Xcl"/>
+                                        <constraint firstItem="sX3-X9-PrF" firstAttribute="centerY" secondItem="Ocr-4u-Evg" secondAttribute="centerY" id="eQp-Wa-aGS"/>
+                                        <constraint firstItem="gi9-vg-x4c" firstAttribute="centerY" secondItem="Ocr-4u-Evg" secondAttribute="centerY" id="wia-pa-UYK"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                             </tableViewCell>
                         </prototypes>
