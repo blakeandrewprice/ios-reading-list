@@ -29,4 +29,17 @@ class BookController: Codable {
             print("Error saving books data: \(error)")
         }
     }
+    
+    func loadFromPersistentStore() {
+        guard let url = readingListURL else { return }
+        
+        do {
+            let data = try Data(contentsOf: url)
+            let decoder = PropertyListDecoder()
+            let decodedBooks = try decoder.decode([Book].self, from: data)
+            books = decodedBooks
+        } catch  {
+            print("Error loading books data: \(error)")
+        }
+    }
 }
