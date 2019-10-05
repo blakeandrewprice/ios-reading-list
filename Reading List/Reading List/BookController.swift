@@ -61,5 +61,17 @@ class BookController: Codable {
         saveToPersistentStore()
     }
     
+    func updateHasBeenRead(for book: inout Book) {
+        if book.hasBeenRead == false {
+            book.hasBeenRead = true
+        } else if book.hasBeenRead == true {
+            book.hasBeenRead = false
+        }
+    }
+    
+    func updateTitleReasonToRead(for book: inout Book) {
+        book.title = "this is a placeholder"
+        book.reasonToRead = "this is a placeholder"
+    }
     
 }
