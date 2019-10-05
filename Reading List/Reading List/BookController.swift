@@ -9,8 +9,10 @@
 import Foundation
 
 class BookController: Codable {
+    //MARK: - Variables/Constants
     var books: [Book] = []
     
+    //MARK: - Computed Properties
     private var readingListURL: URL? {
         let fileManager = FileManager.default
         guard let documents = try? fileManager.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
@@ -19,6 +21,15 @@ class BookController: Codable {
         return documents.appendingPathComponent("books.plist")
     }
     
+    var readBooks: [Book] {
+        return books.filter { $0.hasBeenRead == true }
+    }
+    
+    var unreadBooks: [Book] {
+        return books.filter { $0.hasBeenRead == false }
+    }
+    
+    //MARK: - Persistent
     func saveToPersistentStore() {
         guard let url = readingListURL else { return }
         do {
@@ -43,6 +54,7 @@ class BookController: Codable {
         }
     }
     
+    //MARK: - Functions
     @discardableResult
     func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
         let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
@@ -73,5 +85,4 @@ class BookController: Codable {
         book.title = "this is a placeholder"
         book.reasonToRead = "this is a placeholder"
     }
-    
 }

@@ -9,10 +9,12 @@
 import Foundation
 
 struct Book: Equatable, Codable {
+    //MARK: - Variables/Constants
     var title:          String,
         reasonToRead:   String,
         hasBeenRead:    Bool
     
+    //MARK: - Init
     init(title: String, reasonToRead: String, hasBeenRead: Bool) {
         self.title = title
         self.reasonToRead = reasonToRead
