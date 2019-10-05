@@ -42,4 +42,24 @@ class BookController: Codable {
             print("Error loading books data: \(error)")
         }
     }
+    
+    @discardableResult
+    func createBook(title: String, reasonToRead: String, hasBeenRead: Bool) -> Book {
+        let book = Book(title: title, reasonToRead: reasonToRead, hasBeenRead: hasBeenRead)
+        
+        books.append(book)
+        
+        saveToPersistentStore()
+        
+        return book
+    }
+    
+    func deleteBook(book: Book) {
+        if let index = books.index(of: book) {
+            books.remove(at: index)
+        }
+        saveToPersistentStore()
+    }
+    
+    
 }
