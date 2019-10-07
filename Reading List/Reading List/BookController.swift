@@ -73,6 +73,12 @@ class BookController: Codable {
         saveToPersistentStore()
     }
     
+    
+    
+    
+    
+    
+    // LOOK AT PINNED TWEET BY CRAIG ON UPDATING VIA CELL
     func updateHasBeenRead(for book: inout Book) {
         if book.hasBeenRead == false {
             book.hasBeenRead = true

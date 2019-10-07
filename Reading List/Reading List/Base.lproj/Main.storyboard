@@ -47,6 +47,9 @@
                                         <constraint firstItem="gi9-vg-x4c" firstAttribute="centerY" secondItem="Ocr-4u-Evg" secondAttribute="centerY" id="wia-pa-UYK"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="j0X-Z7-bH5" kind="show" identifier="ShowCellSegue" id="fUr-wM-X9m"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -54,7 +57,13 @@
                             <outlet property="delegate" destination="5zP-e1-tne" id="ZuH-XP-QuO"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="ta9-eS-1NB"/>
+                    <navigationItem key="navigationItem" id="ta9-eS-1NB">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="rnZ-cx-Hoi">
+                            <connections>
+                                <segue destination="j0X-Z7-bH5" kind="show" id="w4m-qx-7Z0"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M3E-kr-i7k" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -70,6 +79,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="ufi-Xn-7u4"/>
                     </view>
+                    <navigationItem key="navigationItem" id="teL-6q-Ad1"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ic9-Sp-rqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,4 +107,7 @@
     <resources>
         <image name="unchecked" width="50" height="50"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="fUr-wM-X9m"/>
+    </inferredMetricsTieBreakers>
 </document>
