@@ -82,7 +82,7 @@ class BookController: Codable {
     func updateHasBeenRead(for book: inout Book) {
         if book.hasBeenRead == false {
             book.hasBeenRead = true
-        } else if book.hasBeenRead == true {
+        } else {
             book.hasBeenRead = false
         }
     }
