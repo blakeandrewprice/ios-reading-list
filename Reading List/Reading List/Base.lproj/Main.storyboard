@@ -8,16 +8,16 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Table View Controller-->
+        <!--Reading List Table View Controller-->
         <scene sceneID="D3d-wv-PRx">
             <objects>
-                <tableViewController id="5zP-e1-tne" sceneMemberID="viewController">
+                <tableViewController id="5zP-e1-tne" customClass="ReadingListTableViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="F5V-3h-77R">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DVe-pR-Wb2">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="DVe-pR-Wb2" customClass="BookTableViewCell" customModule="Reading_List" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="DVe-pR-Wb2" id="Ocr-4u-Evg">
@@ -37,6 +37,9 @@
                                                 <constraint firstAttribute="width" constant="50" id="7vi-pp-nJQ"/>
                                             </constraints>
                                             <state key="normal" image="unchecked"/>
+                                            <connections>
+                                                <action selector="readOrNotButtonPressed:" destination="DVe-pR-Wb2" eventType="touchUpInside" id="cmA-rc-eB4"/>
+                                            </connections>
                                         </button>
                                     </subviews>
                                     <constraints>
@@ -48,6 +51,8 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="bookTitleLabel" destination="gi9-vg-x4c" id="7If-9D-vZ6"/>
+                                    <outlet property="readOrNotButton" destination="sX3-X9-PrF" id="ZdN-63-8Be"/>
                                     <segue destination="j0X-Z7-bH5" kind="show" identifier="ShowCellSegue" id="fUr-wM-X9m"/>
                                 </connections>
                             </tableViewCell>
@@ -108,6 +113,6 @@
         <image name="unchecked" width="50" height="50"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="fUr-wM-X9m"/>
+        <segue reference="w4m-qx-7Z0"/>
     </inferredMetricsTieBreakers>
 </document>
