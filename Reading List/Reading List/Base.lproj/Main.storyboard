@@ -77,14 +77,46 @@
         <!--Reading List-->
         <scene sceneID="j0i-2j-MLX">
             <objects>
-                <viewController title="Reading List" id="j0X-Z7-bH5" sceneMemberID="viewController">
+                <viewController title="Reading List" id="j0X-Z7-bH5" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p46-ch-9VA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter Book Title Here!" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bGS-Ga-mdJ">
+                                <rect key="frame" x="122" y="124" width="170" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="0by-Wf-oN8">
+                                <rect key="frame" x="93" y="176" width="228" height="128"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="textColor" systemColor="labelColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="bGS-Ga-mdJ" firstAttribute="top" secondItem="ufi-Xn-7u4" secondAttribute="top" constant="36" id="FgY-Gb-OOD"/>
+                            <constraint firstItem="ufi-Xn-7u4" firstAttribute="bottom" secondItem="0by-Wf-oN8" secondAttribute="bottom" constant="558" id="GPJ-6Z-2Vq"/>
+                            <constraint firstItem="0by-Wf-oN8" firstAttribute="centerX" secondItem="p46-ch-9VA" secondAttribute="centerX" id="QNP-yX-6fQ"/>
+                            <constraint firstItem="bGS-Ga-mdJ" firstAttribute="centerX" secondItem="p46-ch-9VA" secondAttribute="centerX" id="R23-gR-zHK"/>
+                            <constraint firstItem="0by-Wf-oN8" firstAttribute="leading" secondItem="ufi-Xn-7u4" secondAttribute="leading" constant="93" id="ckW-B0-3qP"/>
+                            <constraint firstItem="0by-Wf-oN8" firstAttribute="top" secondItem="bGS-Ga-mdJ" secondAttribute="bottom" constant="18" id="lNT-V8-As8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="ufi-Xn-7u4"/>
                     </view>
-                    <navigationItem key="navigationItem" id="teL-6q-Ad1"/>
+                    <navigationItem key="navigationItem" id="0WT-92-Ark">
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="g9y-Ee-Gv2">
+                            <connections>
+                                <action selector="saveBookButtonPressed:" destination="j0X-Z7-bH5" id="rjF-Kh-oxV"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="bookTextView" destination="0by-Wf-oN8" id="xvi-6o-HgK"/>
+                        <outlet property="bookTitleTextField" destination="bGS-Ga-mdJ" id="qZv-tu-YHG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ic9-Sp-rqm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

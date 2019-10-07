@@ -15,6 +15,7 @@
 		917DA0D72348086A00783C04 /* BookController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917DA0D62348086A00783C04 /* BookController.swift */; };
 		917DA0D9234BE0A000783C04 /* ReadingListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917DA0D8234BE0A000783C04 /* ReadingListTableViewController.swift */; };
 		917DA0DB234BE0D600783C04 /* BookTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917DA0DA234BE0D600783C04 /* BookTableViewCell.swift */; };
+		917DA0DD234BE60C00783C04 /* BookDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917DA0DC234BE60C00783C04 /* BookDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 		917DA0D62348086A00783C04 /* BookController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookController.swift; sourceTree = "<group>"; };
 		917DA0D8234BE0A000783C04 /* ReadingListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReadingListTableViewController.swift; sourceTree = "<group>"; };
 		917DA0DA234BE0D600783C04 /* BookTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookTableViewCell.swift; sourceTree = "<group>"; };
+		917DA0DC234BE60C00783C04 /* BookDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookDetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,6 +68,7 @@
 				917DA0D62348086A00783C04 /* BookController.swift */,
 				917DA0D8234BE0A000783C04 /* ReadingListTableViewController.swift */,
 				917DA0DA234BE0D600783C04 /* BookTableViewCell.swift */,
+				917DA0DC234BE60C00783C04 /* BookDetailViewController.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
 				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 				466941682110E22A00E7FF73 /* AppDelegate.swift */,
@@ -148,6 +151,7 @@
 			files = (
 				917DA0D9234BE0A000783C04 /* ReadingListTableViewController.swift in Sources */,
 				466941692110E22A00E7FF73 /* AppDelegate.swift in Sources */,
+				917DA0DD234BE60C00783C04 /* BookDetailViewController.swift in Sources */,
 				917DA0D72348086A00783C04 /* BookController.swift in Sources */,
 				917DA0DB234BE0D600783C04 /* BookTableViewCell.swift in Sources */,
 				917DA0D3234802C700783C04 /* Book.swift in Sources */,
