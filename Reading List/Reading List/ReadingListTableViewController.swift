@@ -25,6 +25,13 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         return 2
     }
     
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        if section == 0 {
+            return "Read Books"
+        } else {
+            return "Unread Books"
+        }
+    }
     
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -37,8 +44,8 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StarCell", for: indexPath) as? BookTableViewCell else { fatalError("A book cell was not found!") }
-        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { fatalError("A book cell was not found!") }
+        cell.delegate = self
         let book = bookFor(indexPath: indexPath)
         cell.book = book
     
@@ -61,5 +68,11 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         tableView.reloadData()
      }
 
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            bookController.books.remove(at: indexPath.row)
+            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
+    }
 
 }
