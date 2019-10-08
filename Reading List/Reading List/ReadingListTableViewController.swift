@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate{
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
  
     
 
@@ -68,12 +68,14 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         tableView.reloadData()
      }
 
-//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-//        
-//        if editingStyle == UITableViewCell.EditingStyle.delete {
-//            let book = bookFor(indexPath: indexPath)
-//            bookController.books.index(of: book)
-//        }
-//    }
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete {
+            let book = bookFor(indexPath: indexPath)
+            if let index = bookController.books.index(of: book) {
+                bookController.books.remove(at: index)
+            }
+        }
+    }
 
 }

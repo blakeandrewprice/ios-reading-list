@@ -14,7 +14,7 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var readOrNotButton: UIButton!
     //MARK: - Actions
     @IBAction func readOrNotButtonPressed(_ sender: UIButton) {
-        
+        delegate?.toggleHasBeenRead(for: self)
     }
     //MARK: - Delegates
     weak var delegate: BookTableViewCellDelegate?
@@ -27,7 +27,7 @@ class BookTableViewCell: UITableViewCell {
         bookTitleLabel.text = book.title
         
         if book.hasBeenRead == false {
-            if let image = UIImage(named: "checked") {
+            if let image = UIImage(named: "unchecked") {
                 readOrNotButton.setImage(image, for: .normal)
             }
         } else {
