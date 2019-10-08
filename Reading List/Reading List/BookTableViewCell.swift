@@ -14,7 +14,10 @@ class BookTableViewCell: UITableViewCell {
     @IBOutlet weak var readOrNotButton: UIButton!
     //MARK: - Actions
     @IBAction func readOrNotButtonPressed(_ sender: UIButton) {
+        
     }
+    //MARK: - Delegates
+    weak var delegate: BookTableViewCellDelegate?
     //MARK: - Variables
     var book: Book?
     //MARK: - Functions

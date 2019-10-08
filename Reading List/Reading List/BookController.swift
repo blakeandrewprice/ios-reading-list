@@ -79,16 +79,19 @@ class BookController: Codable {
     
     
     // LOOK AT PINNED TWEET BY CRAIG ON UPDATING VIA CELL
-    func updateHasBeenRead(for book: inout Book) {
-        if book.hasBeenRead == false {
-            book.hasBeenRead = true
-        } else {
-            book.hasBeenRead = false
+    func updateHasBeenRead(for book: Book) {
+        
+        let index = books.index(of: book)
+        if let unwrappedIndex = index {
+            var bookToUpdate = books[unwrappedIndex]
+            bookToUpdate.hasBeenRead.toggle()
         }
+        saveToPersistentStore()
     }
     
     func updateTitleReasonToRead(for book: inout Book) {
         book.title = "this is a placeholder"
         book.reasonToRead = "this is a placeholder"
+        saveToPersistentStore()
     }
 }
