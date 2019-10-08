@@ -12,18 +12,30 @@ class BookDetailViewController: UIViewController {
     //MARK: - Outlets
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookTextView: UITextView!
-    //MARK: - Actions
-    @IBAction func saveBookButtonPressed(_ sender: UIBarButtonItem) {
-    }
     
-    var bookcontroller = BookController()
+    var bookcontroller: BookController?
     var book: Book?
     
+    //MARK: - Actions
+    @IBAction func saveBookButtonPressed(_ sender: UIBarButtonItem) {
+        if let book = book {
+            bookcontroller?.updateTitleOrReasonToRead(title: bookTitleTextField.text ?? "",
+                                                      reason: bookTextView.text ?? "",
+                                                      for: book)
+        } else {
+            bookcontroller?.createBook(title: bookTitleTextField.text ?? "",
+                                       reasonToRead: bookTextView.text ?? "",
+                                       hasBeenRead: false)
+        }
+    }
+    
+
+    
     func updateViews() {
-        if book != nil {
-            bookTitleTextField.text = book?.title
-            bookTextView.text = book?.reasonToRead
-            navigationItem.title = book?.title
+        if let book = book {
+            bookTitleTextField.text = book.title
+            bookTextView.text = book.reasonToRead
+            navigationItem.title = book.title
         } else {
             navigationItem.title = "Add a New Book"
         }

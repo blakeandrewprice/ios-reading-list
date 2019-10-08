@@ -89,9 +89,13 @@ class BookController: Codable {
         saveToPersistentStore()
     }
     
-    func updateTitleReasonToRead(for book: inout Book) {
-        book.title = "this is a placeholder"
-        book.reasonToRead = "this is a placeholder"
+    func updateTitleOrReasonToRead(title: String, reason: String, for book: Book) {
+        let index = books.index(of: book)
+        if let unwrappedIndex = index {
+            var bookToUpdate = books[unwrappedIndex]
+            bookToUpdate.title = title
+            bookToUpdate.reasonToRead = reason
+        }
         saveToPersistentStore()
     }
 }
