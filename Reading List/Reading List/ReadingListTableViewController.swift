@@ -8,7 +8,9 @@
 
 import UIKit
 
-class ReadingListTableViewController: UITableViewController {
+class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate{
+ 
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,16 +28,21 @@ class ReadingListTableViewController: UITableViewController {
     
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
-        return 0
+        if section == 0 {
+            return bookController.readBooks.count
+        } else {
+            return bookController.unreadBooks.count
+        }
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
-
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "StarCell", for: indexPath) as? BookTableViewCell else { fatalError("A book cell was not found!") }
+        
+        let book = bookFor(indexPath: indexPath)
+        cell.book = book
+    
+        
         return cell
     }
     
@@ -46,6 +53,13 @@ class ReadingListTableViewController: UITableViewController {
             return bookController.unreadBooks[indexPath.row]
         }
     }
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        if let unwrappedBook = cell.book {
+            bookController.updateHasBeenRead(for: unwrappedBook)
+        }
+        tableView.reloadData()
+     }
 
 
 }
