@@ -68,11 +68,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         tableView.reloadData()
      }
 
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == UITableViewCell.EditingStyle.delete {
-            bookController.books.remove(at: indexPath.row)
-            tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
-        }
-    }
+//    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        
+//        if editingStyle == UITableViewCell.EditingStyle.delete {
+//            let book = bookFor(indexPath: indexPath)
+//            bookController.books.index(of: book)
+//        }
+//    }
 
 }

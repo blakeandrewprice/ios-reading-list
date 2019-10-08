@@ -74,10 +74,10 @@
             </objects>
             <point key="canvasLocation" x="2790" y="75"/>
         </scene>
-        <!--Reading List-->
+        <!--Book Detail View Controller-->
         <scene sceneID="j0i-2j-MLX">
             <objects>
-                <viewController title="Reading List" id="j0X-Z7-bH5" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="j0X-Z7-bH5" customClass="BookDetailViewController" customModule="Reading_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p46-ch-9VA">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

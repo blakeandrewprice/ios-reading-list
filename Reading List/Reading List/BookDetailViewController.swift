@@ -16,6 +16,19 @@ class BookDetailViewController: UIViewController {
     @IBAction func saveBookButtonPressed(_ sender: UIBarButtonItem) {
     }
     
+    var bookcontroller = BookController()
+    var book: Book?
+    
+    func updateViews() {
+        if book != nil {
+            bookTitleTextField.text = book?.title
+            bookTextView.text = book?.reasonToRead
+            navigationItem.title = book?.title
+        } else {
+            navigationItem.title = "Add a New Book"
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
