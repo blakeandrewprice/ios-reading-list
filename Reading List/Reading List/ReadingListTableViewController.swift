@@ -14,6 +14,12 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        bookController.loadFromPersistentStore()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        tableView.reloadData()
     }
     
     let bookController = BookController()
@@ -48,6 +54,7 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         cell.delegate = self
         let book = bookFor(indexPath: indexPath)
         cell.book = book
+        cell.updateViews()
     
         
         return cell
@@ -74,6 +81,21 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             let book = bookFor(indexPath: indexPath)
             if let index = bookController.books.index(of: book) {
                 bookController.books.remove(at: index)
+                tableView.reloadData()
+            }
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "AddNewBookSegue" {
+            if let bookDetailVC = segue.destination as? BookDetailViewController {
+                bookDetailVC.bookcontroller = bookController
+            }
+        } else if segue.identifier == "ShowCellSegue" {
+            if let bookDetailVC = segue.destination as? BookDetailViewController,
+                let selectedCell = sender as? BookTableViewCell {
+                bookDetailVC.bookcontroller = bookController
+                bookDetailVC.book = selectedCell.book
             }
         }
     }

@@ -85,6 +85,7 @@ class BookController: Codable {
         if let unwrappedIndex = index {
             var bookToUpdate = books[unwrappedIndex]
             bookToUpdate.hasBeenRead.toggle()
+            books[unwrappedIndex] = bookToUpdate
         }
         saveToPersistentStore()
     }
@@ -95,6 +96,7 @@ class BookController: Codable {
             var bookToUpdate = books[unwrappedIndex]
             bookToUpdate.title = title
             bookToUpdate.reasonToRead = reason
+            books[unwrappedIndex] = bookToUpdate
         }
         saveToPersistentStore()
     }

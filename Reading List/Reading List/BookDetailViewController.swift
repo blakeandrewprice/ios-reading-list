@@ -27,6 +27,7 @@ class BookDetailViewController: UIViewController {
                                        reasonToRead: bookTextView.text ?? "",
                                        hasBeenRead: false)
         }
+        _ = navigationController?.popViewController(animated: true)
     }
     
 
@@ -43,5 +44,6 @@ class BookDetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateViews()
     }
 }
