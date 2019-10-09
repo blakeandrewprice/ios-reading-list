@@ -9,25 +9,21 @@
 import UIKit
 
 class ReadingListTableViewController: UITableViewController, BookTableViewCellDelegate {
- 
-    
-
+    //MARK: - viewDidLoad
     override func viewDidLoad() {
         super.viewDidLoad()
         bookController.loadFromPersistentStore()
-        
     }
     
     override func viewWillAppear(_ animated: Bool) {
         tableView.reloadData()
     }
     
+    //MARK: - Properties
     let bookController = BookController()
 
-    // MARK: - Table view data source
-
+    // MARK: - Table View Data Source
     override func numberOfSections(in tableView: UITableView) -> Int {
-        
         return 2
     }
     
@@ -39,7 +35,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         }
     }
     
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section == 0 {
             return bookController.readBooks.count
@@ -47,7 +42,6 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             return bookController.unreadBooks.count
         }
     }
-
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "BookCell", for: indexPath) as? BookTableViewCell else { fatalError("A book cell was not found!") }
@@ -56,25 +50,9 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
         cell.book = book
         cell.updateViews()
     
-        
         return cell
     }
     
-    private func bookFor(indexPath: IndexPath) -> Book {
-        if indexPath.section == 0 {
-            return bookController.readBooks[indexPath.row]
-        } else {
-            return bookController.unreadBooks[indexPath.row]
-        }
-    }
-    
-    func toggleHasBeenRead(for cell: BookTableViewCell) {
-        if let unwrappedBook = cell.book {
-            bookController.updateHasBeenRead(for: unwrappedBook)
-        }
-        tableView.reloadData()
-     }
-
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
         
         if editingStyle == UITableViewCell.EditingStyle.delete {
@@ -99,5 +77,24 @@ class ReadingListTableViewController: UITableViewController, BookTableViewCellDe
             }
         }
     }
+    
+    private func bookFor(indexPath: IndexPath) -> Book {
+        if indexPath.section == 0 {
+            return bookController.readBooks[indexPath.row]
+        } else {
+            return bookController.unreadBooks[indexPath.row]
+        }
+    }
+    
+    func toggleHasBeenRead(for cell: BookTableViewCell) {
+        if let unwrappedBook = cell.book {
+            bookController.updateHasBeenRead(for: unwrappedBook)
+        }
+        tableView.reloadData()
+     }
+
+
+    
+
 
 }

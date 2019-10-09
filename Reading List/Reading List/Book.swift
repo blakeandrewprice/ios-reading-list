@@ -9,7 +9,7 @@
 import Foundation
 
 struct Book: Equatable, Codable {
-    //MARK: - Variables/Constants
+    //MARK: - Properties
     var title:          String,
         reasonToRead:   String,
         hasBeenRead:    Bool

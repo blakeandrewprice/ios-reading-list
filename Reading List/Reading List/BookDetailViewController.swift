@@ -9,10 +9,17 @@
 import UIKit
 
 class BookDetailViewController: UIViewController {
+    //MARK: - viewDidLoad
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateViews()
+    }
+    
     //MARK: - Outlets
     @IBOutlet weak var bookTitleTextField: UITextField!
     @IBOutlet weak var bookTextView: UITextView!
     
+    //MARK: - Variables
     var bookcontroller: BookController?
     var book: Book?
     
@@ -30,8 +37,7 @@ class BookDetailViewController: UIViewController {
         _ = navigationController?.popViewController(animated: true)
     }
     
-
-    
+    //MARK: - Functions
     func updateViews() {
         if let book = book {
             bookTitleTextField.text = book.title
@@ -40,10 +46,5 @@ class BookDetailViewController: UIViewController {
         } else {
             navigationItem.title = "Add a New Book"
         }
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        updateViews()
     }
 }

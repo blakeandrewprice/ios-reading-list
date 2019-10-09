@@ -9,7 +9,7 @@
 import Foundation
 
 class BookController: Codable {
-    //MARK: - Variables/Constants
+    //MARK: - Properties
     var books: [Book] = []
     
     //MARK: - Computed Properties

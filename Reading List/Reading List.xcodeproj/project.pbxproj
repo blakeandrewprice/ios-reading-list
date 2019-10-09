@@ -73,10 +73,10 @@
 				917DA0DC234BE60C00783C04 /* BookDetailViewController.swift */,
 				917DA0DE234BF3A200783C04 /* BookTableViewCellDelegate.swift */,
 				4669416C2110E22B00E7FF73 /* Main.storyboard */,
-				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
-				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				466941712110E22B00E7FF73 /* LaunchScreen.storyboard */,
+				466941682110E22A00E7FF73 /* AppDelegate.swift */,
 				466941742110E22B00E7FF73 /* Info.plist */,
+				4669416F2110E22B00E7FF73 /* Assets.xcassets */,
 			);
 			path = "Reading List";
 			sourceTree = "<group>";
